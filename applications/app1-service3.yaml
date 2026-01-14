@@ -1,22 +1,22 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app1-noprod3-service3
+  name: app2-noprod3-service3
   namespace: openshift-gitops
   finalizers:
   - resources-finalizer.argocd.argoproj.io # Cancella i pod se cancelli la App
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/giovannisciortino/acm_appset_app1.git'
+    repoURL: 'https://github.com/giovannisciortino/acm_appset_app2.git'
     targetRevision: noprod3
     path: workloads/service3  # Punta al deployment reale
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: app1-noprod3   # Il namespace di destinazione richiesto
+    namespace: app2-noprod3   # Il namespace di destinazione richiesto
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
-    - CreateNamespace=true    # Crea il namespace app1-noprod3 se non esiste
+    - CreateNamespace=true    # Crea il namespace app2-noprod3 se non esiste

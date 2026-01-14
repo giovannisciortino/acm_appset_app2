@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app1-noprod3-service1
-  namespace: app1-noprod3
+  name: app2-noprod3-service1
+  namespace: app2-noprod3
   labels:
     app: service1
 spec:
